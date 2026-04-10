@@ -1,0 +1,99 @@
+/* Isaac Wilks | IS 201 | 4/8/26 */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: #f0f0f0;
+    background-color: #1a1a1a;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #333333;
+    padding: 15px;
+    text-align: center;
+}
+
+.navbar a {
+    color: #ff6600;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 14px;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+    color: #ffffff;
+}
+
+.header {
+    background-color: #ff6600;
+    color: #ffffff;
+    text-align: center;
+    padding: 40px;
+}
+
+.header h1 {
+    font-size: 48px;
+    margin: 0;
+}
+
+.header p {
+    font-size: 18px;
+    font-style: italic;
+}
+
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+h1,
+h2,
+h4 {
+    color: #ff6600;
+}
+
+.header h1 {
+    font-size: 48px;
+    margin: 0;
+    color: #ffffff;
+}
+
+.header p {
+    font-size: 18px;
+    font-style: italic;
+    color: #ffffff;
+}
+}
+
+a {
+    color: #ff6600;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #ffffff;
+}
+
+a:visited {
+    color: #cc5500;
+}
+
+li {
+    font-size: 14px;
+    font-style: italic;
+    font-weight: normal;
+}
+
+.heading {
+    font-weight: bold;
+    font-style: normal;
+}
+
+.justify {
+    text-align: justify;
+}

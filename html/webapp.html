@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Isaac Wilks | IS 201 | 4/8/26 -->
+    <title>Motorcycle Cost Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #333333;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .navbar a {
+            color: #ff6600;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+            color: #ffffff;
+        }
+
+        .header {
+            background-color: #ff6600;
+            color: #ffffff;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .header h1 {
+            font-size: 42px;
+            margin: 0;
+        }
+
+        .calculator {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: #2a2a2a;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #ff6600;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #ff6600;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            background-color: #333333;
+            border: 1px solid #ff6600;
+            color: #ffffff;
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-top: 25px;
+            width: 100%;
+            padding: 12px;
+            background-color: #ff6600;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #cc5500;
+        }
+
+        .results {
+            margin-top: 25px;
+            background-color: #333333;
+            padding: 20px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .results h2 {
+            color: #ff6600;
+            margin-top: 0;
+        }
+
+        .results p {
+            font-size: 16px;
+            margin: 8px 0;
+        }
+
+        .total {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ff6600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <a href="../index.html">Home</a> |
+        <a href="resume.html">Resume</a> |
+        <a href="aboutme.html">About Me</a> |
+        <a href="motorcycles.html">Motorcycles</a> |
+        <a href="#">Cost Calculator</a>
+    </div>
+
+    <div class="header">
+        <h1>Motorcycle Cost Calculator</h1>
+        <p>Find out what it really costs to own a motorcycle</p>
+    </div>
+
+    <div class="calculator">
+        <label>Bike Purchase Price ($)</label>
+        <input type="number" id="bikePrice" placeholder="e.g. 8000">
+
+        <label>Loan Term (months, enter 0 if paying cash)</label>
+        <input type="number" id="loanTerm" placeholder="e.g. 48">
+
+        <label>Monthly Insurance ($)</label>
+        <input type="number" id="insurance" placeholder="e.g. 80">
+
+        <label>Monthly Gas ($)</label>
+        <input type="number" id="gas" placeholder="e.g. 50">
+
+        <label>Monthly Maintenance ($)</label>
+        <input type="number" id="maintenance" placeholder="e.g. 30">
+
+        <button onclick="calculate()">Calculate Cost</button>
+
+        <div class="results" id="results">
+            <h2>Your Results</h2>
+            <p>Monthly Loan Payment: <span id="loanPayment"></span></p>
+            <p>Monthly Insurance: <span id="monthlyInsurance"></span></p>
+            <p>Monthly Gas: <span id="monthlyGas"></span></p>
+            <p>Monthly Maintenance: <span id="monthlyMaintenance"></span></p>
+            <hr>
+            <p class="total">Total Monthly Cost: <span id="monthlyTotal"></span></p>
+            <p class="total">Total Yearly Cost: <span id="yearlyTotal"></span></p>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            const bikePrice = parseFloat(document.getElementById('bikePrice').value) || 0;
+            const loanTerm = parseFloat(document.getElementById('loanTerm').value) || 0;
+            const insurance = parseFloat(document.getElementById('insurance').value) || 0;
+            const gas = parseFloat(document.getElementById('gas').value) || 0;
+            const maintenance = parseFloat(document.getElementById('maintenance').value) || 0;
+
+            let loanPayment = 0;
+            if (loanTerm > 0) {
+                loanPayment = bikePrice / loanTerm;
+            }
+
+            const monthlyTotal = loanPayment + insurance + gas + maintenance;
+            const yearlyTotal = monthlyTotal * 12;
+
+            document.getElementById('loanPayment').textContent = '$' + loanPayment.toFixed(2);
+            document.getElementById('monthlyInsurance').textContent = '$' + insurance.toFixed(2);
+            document.getElementById('monthlyGas').textContent = '$' + gas.toFixed(2);
+            document.getElementById('monthlyMaintenance').textContent = '$' + maintenance.toFixed(2);
+            document.getElementById('monthlyTotal').textContent = '$' + monthlyTotal.toFixed(2);
+            document.getElementById('yearlyTotal').textContent = '$' + yearlyTotal.toFixed(2);
+
+            document.getElementById('results').style.display = 'block';
+        }
+    </script>
+
+</body>
+
+</html>
